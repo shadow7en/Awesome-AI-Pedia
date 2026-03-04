@@ -58,16 +58,17 @@ export function getDisplayName(dir: string): string {
 
 // 获取URL友好的路径名
 export function getUrlFriendlyName(dir: string): string {
-  const urlMap: Record<string, string> = {
-    'claudeCode': 'claudecode',
-    '好的rules': 'hao-de-rules',
-    '常用skills': 'chang-yong-skills',
-    '部署ai': 'bu-shu-ai',
-    '使用ai技巧': 'shi-yong-ai-ji-qiao',
-    '开发ai应用相关问题': 'kai-fa-ai-ying-yong',
-    '不可不知的Ai知识': 'bu-ke-bu-zhi-de-ai-zhi-shi'
-  }
-  return urlMap[dir] || dir.toLowerCase()
+  // const urlMap: Record<string, string> = {
+  //   'claudeCode': 'claudecode',
+  //   '好的rules': 'hao-de-rules',
+  //   '常用skills': 'chang-yong-skills',
+  //   '部署ai': 'bu-shu-ai',
+  //   '使用ai技巧': 'shi-yong-ai-ji-qiao',
+  //   '开发ai应用相关问题': 'kai-fa-ai-ying-yong',
+  //   '不可不知的Ai知识': 'bu-ke-bu-zhi-de-ai-zhi-shi'
+  // }
+  return dir
+  // return urlMap[dir] || dir.toLowerCase()
 }
 
 // 获取目录下第一篇文章的链接（按字母序）
