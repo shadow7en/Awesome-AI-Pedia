@@ -70,6 +70,27 @@ export function getUrlFriendlyName(dir: string): string {
   return urlMap[dir] || dir.toLowerCase()
 }
 
+// 获取目录下第一篇文章的链接（按字母序）
+function getFirstArticleLink(dirPath: string, urlBasePath: string): string | null {
+  if (!fs.existsSync(dirPath)) return null
+
+  const entries = fs.readdirSync(dirPath, { withFileTypes: true })
+
+  // 获取所有 .md 文件，按字母序排序
+  const mdFiles = entries
+    .filter((e: fs.Dirent) => e.isFile() && e.name.endsWith('.md'))
+    .map((e: fs.Dirent) => e.name)
+    .sort()
+
+  // 跳过 index.md，返回第一个文章
+  const firstArticle = mdFiles.find(file => file !== 'index.md')
+
+  if (!firstArticle) return null
+
+  const fileName = firstArticle.replace('.md', '')
+  return `${urlBasePath}/${fileName}`
+}
+
 // 生成AI知识库侧边栏
 // 递归生成侧边栏项目
 function generateSidebarItems(dirPath: string, urlBasePath: string): Array<any> {
@@ -319,10 +340,17 @@ export function generateNav(baseDir: string) {
   // 添加所有导航项
   contentDirs.forEach((dir: string) => {
     const urlPath = getUrlFriendlyName(dir)
-    navItems.push({
-      text: getDisplayName(dir),
-      link: `/${urlPath}/`  // 🆕 移除 /ai/ 前缀
-    })
+    const dirPath = path.join(rootDir, dir)
+
+    // 🆕 获取第一篇文章的链接
+    const firstArticleLink = getFirstArticleLink(dirPath, `/${urlPath}`)
+
+    if (firstArticleLink) {
+      navItems.push({
+        text: getDisplayName(dir),
+        link: firstArticleLink  // 指向第一篇文章
+      })
+    }
   })
 
   // 根据导航项总数动态决定是否需要分组
