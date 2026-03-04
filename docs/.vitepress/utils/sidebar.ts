@@ -21,40 +21,40 @@ export function getMarkdownFiles(dirPath: string): string[] {
 }
 
 // 获取中文显示名称
-export function getDisplayName(dir: string): string {
-  const nameMap: Record<string, string> = {
-    'antigravity': 'Antigravity',
-    'claudecode': 'Claude Code',
-    'claudeCode': 'Claude Code',
-    'cursor': 'Cursor',
-    'mcp': 'MCP',
-    'openclaw': 'openclaw',
-    'prompt': 'Prompt',
-    'rules': 'Rules',
-    'skills': 'Skills',
-    'hao-de-rules': '好的Rules',
-    '好的rules': '好的Rules',
-    'chang-yong-skills': '常用Skills',
-    '常用skills': '常用Skills',
-    'bu-shu-ai': '部署AI',
-    '部署ai': '部署AI',
-    'shi-yong-ai-ji-qiao': '使用AI技巧',
-    '使用ai技巧': '使用AI技巧',
-    'kai-fa-ai-ying-yong': '开发AI应用',
-    '开发ai应用相关问题': '开发AI应用',
-    'bu-ke-bu-zhi-de-ai-zhi-shi': '不可不知的AI知识',
-    '不可不知的Ai知识': '不可不知的AI知识',
-    // prompt 子目录
-    '图片': '图片',
-    '常用类提示词': '常用类提示词',
-    '开发类提示词': '开发类提示词',
-    '提示词': '提示词',
-    '项目初始化': '项目初始化',
-    // 其他子目录
-    '其他': '其他'
-  }
-  return nameMap[dir] || dir
-}
+// export function getDisplayName(dir: string): string {
+//   const nameMap: Record<string, string> = {
+//     'antigravity': 'Antigravity',
+//     'claudecode': 'Claude Code',
+//     'claudeCode': 'Claude Code',
+//     'cursor': 'Cursor',
+//     'mcp': 'MCP',
+//     'openclaw': 'openclaw',
+//     'prompt': 'Prompt',
+//     'rules': 'Rules',
+//     'skills': 'Skills',
+//     'hao-de-rules': '好的Rules',
+//     '好的rules': '好的Rules',
+//     'chang-yong-skills': '常用Skills',
+//     '常用skills': '常用Skills',
+//     'bu-shu-ai': '部署AI',
+//     '部署ai': '部署AI',
+//     'shi-yong-ai-ji-qiao': '使用AI技巧',
+//     '使用ai技巧': '使用AI技巧',
+//     'kai-fa-ai-ying-yong': '开发AI应用',
+//     '开发ai应用相关问题': '开发AI应用',
+//     'bu-ke-bu-zhi-de-ai-zhi-shi': '不可不知的AI知识',
+//     '不可不知的Ai知识': '不可不知的AI知识',
+//     // prompt 子目录
+//     '图片': '图片',
+//     '常用类提示词': '常用类提示词',
+//     '开发类提示词': '开发类提示词',
+//     '提示词': '提示词',
+//     '项目初始化': '项目初始化',
+//     // 其他子目录
+//     '其他': '其他'
+//   }
+//   return nameMap[dir] || dir
+// }
 
 // 获取URL友好的路径名
 export function getUrlFriendlyName(dir: string): string {
@@ -127,7 +127,8 @@ function generateSidebarItems(dirPath: string, urlBasePath: string): Array<any> 
     
     if (subItems.length > 0) {
       items.push({
-        text: getDisplayName(subDir),
+        text: subDir,
+        // text: getDisplayName(subDir),
         collapsed: true,
         items: subItems
       })
@@ -156,7 +157,8 @@ export function generateAISidebar(baseDir: string) {
     const items = generateSidebarItems(dirPath, `/ai/${dir}`)
 
     if (items.length > 0) {
-      const displayName = getDisplayName(dir)
+      const displayName = dir
+      // const displayName = getDisplayName(dir)
 
       categories.push({
         text: displayName,
@@ -204,7 +206,8 @@ function generateDynamicSidebarItems(dirPath: string, urlBasePath: string): Arra
     
     if (subItems.length > 0) {
       items.push({
-        text: getDisplayName(subDir),
+        text: subDir,
+        // text: getDisplayName(subDir),
         collapsed: true,
         items: subItems
       })
@@ -233,7 +236,8 @@ export function generateDynamicSidebar(folderName: string, baseDir: string) {
 
   return [
     {
-      text: getDisplayName(folderName),
+      // text: getDisplayName(folderName),
+      text: folderName,
       collapsed: false,
       items
     }
@@ -348,7 +352,8 @@ export function generateNav(baseDir: string) {
 
     if (firstArticleLink) {
       navItems.push({
-        text: getDisplayName(dir),
+        text: dir,
+        // text: getDisplayName(dir),
         link: firstArticleLink  // 指向第一篇文章
       })
     }

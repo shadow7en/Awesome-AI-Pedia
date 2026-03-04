@@ -12,7 +12,8 @@
         <p class="nav-card-desc">{{ card.description }}</p>
         <a :href="card.link" class="nav-card-link">
           <span>探索更多</span>
-          <svg class="nav-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg class="nav-card-arrow" view
+          Box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </a>

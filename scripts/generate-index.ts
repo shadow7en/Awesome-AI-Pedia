@@ -56,7 +56,8 @@ function generateIndexContent(dirPath: string): string {
   }).join('\n')
   
   // 获取显示名称
-  const displayName = getDisplayName(dirName)
+  const displayName = dirName
+  // const displayName = getDisplayName(dirName)
   
   return `---
 layout: doc
@@ -96,30 +97,30 @@ ${articleItems}
 }
 
 // 获取中文显示名称
-function getDisplayName(dir: string): string {
-  const nameMap: Record<string, string> = {
-    'antigravity': 'Antigravity',
-    'claudecode': 'Claude Code',
-    'cursor': 'Cursor',
-    'mcp': 'MCP',
-    'openclaw': 'openclaw',
-    'prompt': 'Prompt',
-    'rules': 'Rules',
-    'skills': 'Skills',
-    'hao-de-rules': '好的Rules',
-    'chang-yong-skills': '常用Skills',
-    'bu-shu-ai': '部署AI',
-    'shi-yong-ai-ji-qiao': '使用AI技巧',
-    'kai-fa-ai-ying-yong': '开发AI应用',
-    'bu-ke-bu-zhi-de-ai-zhi-shi': '不可不知的AI知识',
-    '图片': '图片',
-    '常用类提示词': '常用类提示词',
-    '开发类提示词': '开发类提示词',
-    '提示词': '提示词',
-    '项目初始化': '项目初始化'
-  }
-  return nameMap[dir] || dir
-}
+// function getDisplayName(dir: string): string {
+//   const nameMap: Record<string, string> = {
+//     'antigravity': 'Antigravity',
+//     'claudecode': 'Claude Code',
+//     'cursor': 'Cursor',
+//     'mcp': 'MCP',
+//     'openclaw': 'openclaw',
+//     'prompt': 'Prompt',
+//     'rules': 'Rules',
+//     'skills': 'Skills',
+//     'hao-de-rules': '好的Rules',
+//     'chang-yong-skills': '常用Skills',
+//     'bu-shu-ai': '部署AI',
+//     'shi-yong-ai-ji-qiao': '使用AI技巧',
+//     'kai-fa-ai-ying-yong': '开发AI应用',
+//     'bu-ke-bu-zhi-de-ai-zhi-shi': '不可不知的AI知识',
+//     '图片': '图片',
+//     '常用类提示词': '常用类提示词',
+//     '开发类提示词': '开发类提示词',
+//     '提示词': '提示词',
+//     '项目初始化': '项目初始化'
+//   }
+//   return nameMap[dir] || dir
+// }
 
 // 主函数
 function main() {

@@ -47,11 +47,13 @@ const urlMap = {
 };
 
 function getDisplayName(dir) {
-  return nameMap[dir] || dir;
+  return dir;
+  // return nameMap[dir] || dir;
 }
 
 function getUrlFriendlyName(dir) {
-  return urlMap[dir] || dir.toLowerCase();
+  return dir;
+  // return urlMap[dir] || dir.toLowerCase();
 }
 
 function generateIndex() {
@@ -62,7 +64,8 @@ function generateIndex() {
         .filter(f => f.endsWith('.md') && f !== 'index.md')
         .sort();
 
-      const displayName = getDisplayName(dir);
+      const displayName = dir;
+      // const displayName = getDisplayName(dir);
       const urlFriendlyName = getUrlFriendlyName(dir);
       
       let content = `---
