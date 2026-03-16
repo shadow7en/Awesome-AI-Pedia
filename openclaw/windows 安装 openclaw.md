@@ -38,17 +38,25 @@
 
 使用 `npm` 进行全局安装：
 
-```powershell
-npm install -g clawdbot
-```
-
 **验证安装**：
 ```powershell
-clawdbot --version
+# Install OpenClaw
+npm i -g openclaw
+
+
+
+# Meet your lobster
+openclaw onboard
 ```
 *如果看到版本号，说明 Clawdbot 已成功安装到你的系统中。*
 
 ---
+
+
+失败的话
+```powershell
+npm i -g openclaw --ignore-scripts --registry=https://registry.npmmirror.com
+```
 
 ## ⚙️ 配置与启动
 
