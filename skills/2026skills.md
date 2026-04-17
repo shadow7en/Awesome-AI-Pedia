@@ -120,8 +120,3 @@ npx get-shit-done-cc --claude --global
 3.  **开发中：** 写 Web 就配 **UI/UX Pro Max**；搞自动化就加 **n8n-MCP**；记笔记就上 **Obsidian Skills**。
 
 用不用这些技能，决定了你是和 Claude 在一起“挣扎”，还是在一起“起飞”。
-
----
-
-> [!TIP]
-> 觉得有帮助？快去这些仓库点个 Star 支持一下开发者！
